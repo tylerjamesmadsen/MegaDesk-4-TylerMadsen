@@ -47,15 +47,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cancelQuoteButton
             // 
             this.cancelQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelQuoteButton.Location = new System.Drawing.Point(12, 290);
+            this.cancelQuoteButton.Location = new System.Drawing.Point(435, 470);
             this.cancelQuoteButton.Name = "cancelQuoteButton";
             this.cancelQuoteButton.Size = new System.Drawing.Size(115, 40);
             this.cancelQuoteButton.TabIndex = 8;
@@ -66,7 +68,7 @@
             // saveQuoteButton
             // 
             this.saveQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveQuoteButton.Location = new System.Drawing.Point(172, 290);
+            this.saveQuoteButton.Location = new System.Drawing.Point(595, 470);
             this.saveQuoteButton.Name = "saveQuoteButton";
             this.saveQuoteButton.Size = new System.Drawing.Size(115, 40);
             this.saveQuoteButton.TabIndex = 7;
@@ -279,11 +281,21 @@
             this.label7.TabIndex = 25;
             this.label7.Text = "inches";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(336, 51);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(334, 319);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 346);
+            this.ClientSize = new System.Drawing.Size(722, 522);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -304,7 +316,6 @@
             this.Controls.Add(this.saveQuoteButton);
             this.Controls.Add(this.cancelQuoteButton);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(315, 385);
             this.MinimumSize = new System.Drawing.Size(315, 385);
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -313,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,5 +351,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
