@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.exitDisplayQuoteButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.shippingPriceLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.totalPriceLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.shippingSpeedLabel = new System.Windows.Forms.Label();
@@ -45,23 +45,23 @@
             // exitDisplayQuoteButton
             // 
             this.exitDisplayQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitDisplayQuoteButton.Location = new System.Drawing.Point(12, 290);
+            this.exitDisplayQuoteButton.Location = new System.Drawing.Point(172, 294);
             this.exitDisplayQuoteButton.Name = "exitDisplayQuoteButton";
             this.exitDisplayQuoteButton.Size = new System.Drawing.Size(115, 40);
             this.exitDisplayQuoteButton.TabIndex = 4;
-            this.exitDisplayQuoteButton.Text = "Back";
+            this.exitDisplayQuoteButton.Text = "Main Menu";
             this.exitDisplayQuoteButton.UseVisualStyleBackColor = true;
             this.exitDisplayQuoteButton.Click += new System.EventHandler(this.exitDisplayQuoteButton_Click);
             // 
-            // label6
+            // shippingPriceLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(238, 212);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 20);
-            this.label6.TabIndex = 43;
-            this.label6.Text = "$0.00";
+            this.shippingPriceLabel.AutoSize = true;
+            this.shippingPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shippingPriceLabel.Location = new System.Drawing.Point(238, 212);
+            this.shippingPriceLabel.Name = "shippingPriceLabel";
+            this.shippingPriceLabel.Size = new System.Drawing.Size(49, 20);
+            this.shippingPriceLabel.TabIndex = 43;
+            this.shippingPriceLabel.Text = "$0.00";
             // 
             // label5
             // 
@@ -73,15 +73,15 @@
             this.label5.TabIndex = 42;
             this.label5.Text = "Shipping Price";
             // 
-            // label4
+            // totalPriceLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(197, 252);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 26);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "$200.00";
+            this.totalPriceLabel.AutoSize = true;
+            this.totalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalPriceLabel.Location = new System.Drawing.Point(197, 252);
+            this.totalPriceLabel.Name = "totalPriceLabel";
+            this.totalPriceLabel.Size = new System.Drawing.Size(90, 26);
+            this.totalPriceLabel.TabIndex = 41;
+            this.totalPriceLabel.Text = "$200.00";
             // 
             // label2
             // 
@@ -166,9 +166,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(299, 346);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.shippingPriceLabel);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.totalPriceLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.shippingSpeedLabel);
@@ -190,9 +190,9 @@
         #endregion
 
         private System.Windows.Forms.Button exitDisplayQuoteButton;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label shippingPriceLabel;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label totalPriceLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label shippingSpeedLabel;

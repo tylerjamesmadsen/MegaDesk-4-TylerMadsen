@@ -100,6 +100,9 @@
             this.Controls.Add(this.openSearchQuotesButton);
             this.Controls.Add(this.openViewQuotesButton);
             this.Controls.Add(this.openAddQuoteButton);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(420, 285);
+            this.MinimumSize = new System.Drawing.Size(420, 285);
             this.Name = "MainMenu";
             this.Text = "MegaDesk";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
