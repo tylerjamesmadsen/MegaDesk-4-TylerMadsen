@@ -304,7 +304,6 @@
             this.Controls.Add(this.saveQuoteButton);
             this.Controls.Add(this.cancelQuoteButton);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(315, 385);
             this.MinimumSize = new System.Drawing.Size(315, 385);
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

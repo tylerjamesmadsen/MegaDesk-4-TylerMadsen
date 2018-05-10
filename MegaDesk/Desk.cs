@@ -8,5 +8,6 @@ namespace MegaDesk
 {
     class Desk
     {
+        public int MyProperty { get; set; }
     }
 }
