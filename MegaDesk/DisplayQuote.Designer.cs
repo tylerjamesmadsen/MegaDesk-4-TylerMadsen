@@ -178,6 +178,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.exitDisplayQuoteButton);
+            this.MinimumSize = new System.Drawing.Size(315, 385);
             this.Name = "DisplayQuote";
             this.Text = "Display Quote";
             this.Deactivate += new System.EventHandler(this.exitDisplayQuoteButton_Click);
