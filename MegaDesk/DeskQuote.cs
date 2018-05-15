@@ -8,15 +8,6 @@ namespace MegaDesk
 {
     class DeskQuote
     {
-        enum SurfaceMaterial
-        {
-            Laminate,
-            Oak,
-            Rosewood,
-            Veneer,
-            Pine
-        };
-
         public int CustomerName { get; set; }
 
         public int ShippingSpeed { get; set; }
