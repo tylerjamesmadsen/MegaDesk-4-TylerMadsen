@@ -19,9 +19,7 @@ namespace MegaDesk
 
         private void exitDisplayQuoteButton_Click(object sender, EventArgs e)
         {
-            var mainMenu = (MainMenu)Tag;
-            mainMenu.Show();
-            Close();
+            
         }
     }
 }

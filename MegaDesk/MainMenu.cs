@@ -33,14 +33,6 @@ namespace MegaDesk
             Hide();
         }
 
-        private void openSearchQuotesButton_Click(object sender, EventArgs e)
-        {
-            SearchQuotes addSearchQuotesForm = new SearchQuotes();
-            addSearchQuotesForm.Tag = this;
-            addSearchQuotesForm.Show(this);
-            Hide();
-        }
-
         private void exitButton_Click(object sender, EventArgs e) => Close();
     }
 }

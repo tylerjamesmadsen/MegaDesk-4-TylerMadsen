@@ -30,11 +30,11 @@
         {
             this.cancelQuoteButton = new System.Windows.Forms.Button();
             this.getQuoteButton = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.shippingNumDaysSelectionComboBox = new System.Windows.Forms.ComboBox();
+            this.widthNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.customerNameTextBox = new System.Windows.Forms.TextBox();
+            this.depthNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.numberOfDrawersNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.shippingSelectionComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.deskWidthLabel = new System.Windows.Forms.Label();
             this.numDrawersLabel = new System.Windows.Forms.Label();
@@ -42,13 +42,13 @@
             this.shippingSpeedLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.surfaceMaterialSelectionComboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.totalPriceLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.shippingPriceLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.totalPriceAmountLabel = new System.Windows.Forms.Label();
+            this.totalPriceLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.widthNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depthNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberOfDrawersNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // cancelQuoteButton
@@ -71,87 +71,88 @@
             this.getQuoteButton.TabIndex = 7;
             this.getQuoteButton.Text = "Get Quote";
             this.getQuoteButton.UseVisualStyleBackColor = true;
+            this.getQuoteButton.Click += new System.EventHandler(this.getQuoteButton_Click);
             // 
-            // numericUpDown1
+            // widthNumericUpDown
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(174, 51);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.widthNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.widthNumericUpDown.Location = new System.Drawing.Point(174, 51);
+            this.widthNumericUpDown.Maximum = new decimal(new int[] {
             96,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.widthNumericUpDown.Minimum = new decimal(new int[] {
             24,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(113, 26);
-            this.numericUpDown1.TabIndex = 2;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.widthNumericUpDown.Name = "widthNumericUpDown";
+            this.widthNumericUpDown.Size = new System.Drawing.Size(113, 26);
+            this.widthNumericUpDown.TabIndex = 2;
+            this.widthNumericUpDown.Value = new decimal(new int[] {
             24,
             0,
             0,
             0});
             // 
-            // textBox1
+            // customerNameTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(69, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(218, 26);
-            this.textBox1.TabIndex = 1;
+            this.customerNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerNameTextBox.Location = new System.Drawing.Point(69, 6);
+            this.customerNameTextBox.Name = "customerNameTextBox";
+            this.customerNameTextBox.Size = new System.Drawing.Size(218, 26);
+            this.customerNameTextBox.TabIndex = 1;
             // 
-            // numericUpDown2
+            // depthNumericUpDown
             // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(174, 83);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.depthNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depthNumericUpDown.Location = new System.Drawing.Point(174, 83);
+            this.depthNumericUpDown.Maximum = new decimal(new int[] {
             48,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.depthNumericUpDown.Minimum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(113, 26);
-            this.numericUpDown2.TabIndex = 3;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.depthNumericUpDown.Name = "depthNumericUpDown";
+            this.depthNumericUpDown.Size = new System.Drawing.Size(113, 26);
+            this.depthNumericUpDown.TabIndex = 3;
+            this.depthNumericUpDown.Value = new decimal(new int[] {
             12,
             0,
             0,
             0});
             // 
-            // numericUpDown3
+            // numberOfDrawersNumericUpDown
             // 
-            this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown3.Location = new System.Drawing.Point(174, 115);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.numberOfDrawersNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfDrawersNumericUpDown.Location = new System.Drawing.Point(174, 115);
+            this.numberOfDrawersNumericUpDown.Maximum = new decimal(new int[] {
             7,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(113, 26);
-            this.numericUpDown3.TabIndex = 4;
+            this.numberOfDrawersNumericUpDown.Name = "numberOfDrawersNumericUpDown";
+            this.numberOfDrawersNumericUpDown.Size = new System.Drawing.Size(113, 26);
+            this.numberOfDrawersNumericUpDown.TabIndex = 4;
             // 
-            // shippingNumDaysSelectionComboBox
+            // shippingSelectionComboBox
             // 
-            this.shippingNumDaysSelectionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shippingNumDaysSelectionComboBox.FormattingEnabled = true;
-            this.shippingNumDaysSelectionComboBox.Items.AddRange(new object[] {
-            "3 days",
-            "5 days",
-            "7 days",
-            "14 days"});
-            this.shippingNumDaysSelectionComboBox.Location = new System.Drawing.Point(174, 181);
-            this.shippingNumDaysSelectionComboBox.Name = "shippingNumDaysSelectionComboBox";
-            this.shippingNumDaysSelectionComboBox.Size = new System.Drawing.Size(113, 28);
-            this.shippingNumDaysSelectionComboBox.TabIndex = 6;
+            this.shippingSelectionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shippingSelectionComboBox.FormattingEnabled = true;
+            this.shippingSelectionComboBox.Items.AddRange(new object[] {
+            "Rush: 3 days",
+            "Rush: 5 days",
+            "Rush: 7 days",
+            "Standard: 14 days"});
+            this.shippingSelectionComboBox.Location = new System.Drawing.Point(174, 181);
+            this.shippingSelectionComboBox.Name = "shippingSelectionComboBox";
+            this.shippingSelectionComboBox.Size = new System.Drawing.Size(113, 28);
+            this.shippingSelectionComboBox.TabIndex = 6;
             // 
             // label1
             // 
@@ -228,26 +229,6 @@
             this.surfaceMaterialSelectionComboBox.Size = new System.Drawing.Size(113, 28);
             this.surfaceMaterialSelectionComboBox.TabIndex = 5;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 252);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 26);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Total Price";
-            // 
-            // totalPriceLabel
-            // 
-            this.totalPriceLabel.AutoSize = true;
-            this.totalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalPriceLabel.Location = new System.Drawing.Point(197, 252);
-            this.totalPriceLabel.Name = "totalPriceLabel";
-            this.totalPriceLabel.Size = new System.Drawing.Size(90, 26);
-            this.totalPriceLabel.TabIndex = 22;
-            this.totalPriceLabel.Text = "$200.00";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -268,15 +249,37 @@
             this.shippingPriceLabel.TabIndex = 24;
             this.shippingPriceLabel.Text = "$0.00";
             // 
+            // totalPriceAmountLabel
+            // 
+            this.totalPriceAmountLabel.AutoSize = true;
+            this.totalPriceAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalPriceAmountLabel.Location = new System.Drawing.Point(197, 250);
+            this.totalPriceAmountLabel.Name = "totalPriceAmountLabel";
+            this.totalPriceAmountLabel.Size = new System.Drawing.Size(90, 26);
+            this.totalPriceAmountLabel.TabIndex = 43;
+            this.totalPriceAmountLabel.Text = "$200.00";
+            this.totalPriceAmountLabel.Visible = false;
+            // 
+            // totalPriceLabel
+            // 
+            this.totalPriceLabel.AutoSize = true;
+            this.totalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalPriceLabel.Location = new System.Drawing.Point(11, 250);
+            this.totalPriceLabel.Name = "totalPriceLabel";
+            this.totalPriceLabel.Size = new System.Drawing.Size(115, 26);
+            this.totalPriceLabel.TabIndex = 42;
+            this.totalPriceLabel.Text = "Total Price";
+            this.totalPriceLabel.Visible = false;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(299, 346);
+            this.Controls.Add(this.totalPriceAmountLabel);
+            this.Controls.Add(this.totalPriceLabel);
             this.Controls.Add(this.shippingPriceLabel);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.totalPriceLabel);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.surfaceMaterialSelectionComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.shippingSpeedLabel);
@@ -284,11 +287,11 @@
             this.Controls.Add(this.deskDepthLabel);
             this.Controls.Add(this.deskWidthLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.shippingNumDaysSelectionComboBox);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.shippingSelectionComboBox);
+            this.Controls.Add(this.numberOfDrawersNumericUpDown);
+            this.Controls.Add(this.depthNumericUpDown);
+            this.Controls.Add(this.customerNameTextBox);
+            this.Controls.Add(this.widthNumericUpDown);
             this.Controls.Add(this.getQuoteButton);
             this.Controls.Add(this.cancelQuoteButton);
             this.MaximizeBox = false;
@@ -298,9 +301,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Quote";
             this.Deactivate += new System.EventHandler(this.cancelQuoteButton_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depthNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberOfDrawersNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,11 +313,11 @@
 
         private System.Windows.Forms.Button cancelQuoteButton;
         private System.Windows.Forms.Button getQuoteButton;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.ComboBox shippingNumDaysSelectionComboBox;
+        private System.Windows.Forms.NumericUpDown widthNumericUpDown;
+        private System.Windows.Forms.TextBox customerNameTextBox;
+        private System.Windows.Forms.NumericUpDown depthNumericUpDown;
+        private System.Windows.Forms.NumericUpDown numberOfDrawersNumericUpDown;
+        private System.Windows.Forms.ComboBox shippingSelectionComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label deskWidthLabel;
         private System.Windows.Forms.Label numDrawersLabel;
@@ -322,9 +325,9 @@
         private System.Windows.Forms.Label shippingSpeedLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox surfaceMaterialSelectionComboBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label totalPriceLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label shippingPriceLabel;
+        private System.Windows.Forms.Label totalPriceAmountLabel;
+        private System.Windows.Forms.Label totalPriceLabel;
     }
 }

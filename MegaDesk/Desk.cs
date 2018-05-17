@@ -8,14 +8,14 @@ namespace MegaDesk
 {
     class Desk
     {
-        enum SurfaceMaterial
+        public enum DesktopSurfaceMaterial
         {
             Laminate,
             Oak,
             Rosewood,
             Veneer,
             Pine
-        };
+        }
 
         public int Width { get; set; }
 
@@ -23,10 +23,12 @@ namespace MegaDesk
 
         public int NumberOfDrawers { get; set; }
 
-        private int calculateSurfaceArea()
+        public DesktopSurfaceMaterial SurfaceMaterial { get; set; }
+
+        public int calculateSurfaceArea()
         {
             // TODO
-            return 500;
+            return Width * Depth;
         }
     }
 }
