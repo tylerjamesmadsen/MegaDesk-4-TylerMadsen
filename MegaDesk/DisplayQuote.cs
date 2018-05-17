@@ -17,7 +17,7 @@ namespace MegaDesk
             InitializeComponent();
         }
 
-        private void exitDisplayQuoteButton_Click(object sender, EventArgs e)
+        private void ExitDisplayQuoteButton_Click(object sender, EventArgs e)
         {
             
         }

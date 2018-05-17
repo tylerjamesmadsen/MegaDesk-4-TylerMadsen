@@ -60,7 +60,7 @@
             this.cancelQuoteButton.TabIndex = 8;
             this.cancelQuoteButton.Text = "Cancel";
             this.cancelQuoteButton.UseVisualStyleBackColor = true;
-            this.cancelQuoteButton.Click += new System.EventHandler(this.cancelQuoteButton_Click);
+            this.cancelQuoteButton.Click += new System.EventHandler(this.CancelQuoteButton_Click);
             // 
             // getQuoteButton
             // 
@@ -71,7 +71,7 @@
             this.getQuoteButton.TabIndex = 7;
             this.getQuoteButton.Text = "Get Quote";
             this.getQuoteButton.UseVisualStyleBackColor = true;
-            this.getQuoteButton.Click += new System.EventHandler(this.getQuoteButton_Click);
+            this.getQuoteButton.Click += new System.EventHandler(this.GetQuoteButton_Click);
             // 
             // widthNumericUpDown
             // 
@@ -300,7 +300,7 @@
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Quote";
-            this.Deactivate += new System.EventHandler(this.cancelQuoteButton_Click);
+            this.Deactivate += new System.EventHandler(this.CancelQuoteButton_Click);
             ((System.ComponentModel.ISupportInitialize)(this.widthNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberOfDrawersNumericUpDown)).EndInit();

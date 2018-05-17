@@ -24,16 +24,18 @@ namespace MegaDesk
                             .ToList();
 
             surfaceMaterialSelectionComboBox.DataSource = materials;
+
+            shippingSelectionComboBox.DataSource = DeskQuote.SHIPPING_SPEEDS;
         }
 
-        private void cancelQuoteButton_Click(object sender, EventArgs e)
+        private void CancelQuoteButton_Click(object sender, EventArgs e)
         {
             var mainMenu = (MainMenu)Tag;
             mainMenu.Show();
             Close();
         }
 
-        private void getQuoteButton_Click(object sender, EventArgs e)
+        private void GetQuoteButton_Click(object sender, EventArgs e)
         {
             Desk desk = new Desk
             {
@@ -53,8 +55,8 @@ namespace MegaDesk
                 QuoteDate = DateTime.Now
             };
 
-            totalPriceAmountLabel.Text = $"${deskQuote.calculateQuote()}";
-            shippingPriceLabel.Text = $"${deskQuote.getShippingPrice()}";
+            totalPriceAmountLabel.Text = $"${deskQuote.CalculateQuote()}";
+            shippingPriceLabel.Text = $"${deskQuote.GetShippingPrice()}";
 
             /* TODO: write to file */
             // if file exists

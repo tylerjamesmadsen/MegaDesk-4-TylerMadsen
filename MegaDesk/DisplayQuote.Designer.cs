@@ -59,7 +59,7 @@
             this.exitDisplayQuoteButton.TabIndex = 4;
             this.exitDisplayQuoteButton.Text = "Main Menu";
             this.exitDisplayQuoteButton.UseVisualStyleBackColor = true;
-            this.exitDisplayQuoteButton.Click += new System.EventHandler(this.exitDisplayQuoteButton_Click);
+            this.exitDisplayQuoteButton.Click += new System.EventHandler(this.ExitDisplayQuoteButton_Click);
             // 
             // shippingPriceLabel
             // 
@@ -288,7 +288,7 @@
             this.MinimumSize = new System.Drawing.Size(315, 385);
             this.Name = "DisplayQuote";
             this.Text = "Display Quote";
-            this.Deactivate += new System.EventHandler(this.exitDisplayQuoteButton_Click);
+            this.Deactivate += new System.EventHandler(this.ExitDisplayQuoteButton_Click);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

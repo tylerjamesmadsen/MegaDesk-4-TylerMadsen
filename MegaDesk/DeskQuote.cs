@@ -17,10 +17,11 @@ namespace MegaDesk
         }
 
         // shipping speed constant strings
-        private const string RUSH_3_DAYS = "Rush - 3 Days";
-        private const string RUSH_5_DAYS = "Rush - 5 Days";
-        private const string RUSH_7_DAYS = "Rush - 7 Days";
-        private const string STANDARD = "Standard - 14 Days";
+        public static readonly string[] SHIPPING_SPEEDS = {
+            "Rush - 3 Days",
+            "Rush - 5 Days",
+            "Rush - 7 Days",
+            "Standard - 14 Days" };
 
         // price constants
         const decimal PRICE_BASE = 200.00M;
@@ -50,13 +51,13 @@ namespace MegaDesk
         public DateTime QuoteDate { get; set; }
 
         // methods
-        public decimal calculateQuote()
+        public decimal CalculateQuote()
         {
             // TODO:
             return PRICE_BASE;
         }
 
-        public decimal getShippingPrice()
+        public decimal GetShippingPrice()
         {
             // TODO:
             return 0.00M;
