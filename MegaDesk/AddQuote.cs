@@ -25,7 +25,7 @@ namespace MegaDesk
 
             surfaceMaterialSelectionComboBox.DataSource = materials;
 
-            shippingSelectionComboBox.DataSource = DeskQuote.SHIPPING_SPEEDS;
+            shippingSelectionComboBox.DataSource = DeskQuote.ShippingSpeeds;
         }
 
         private void CancelQuoteButton_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace MegaDesk
                 Width = (int)widthNumericUpDown.Value,
                 Depth = (int)depthNumericUpDown.Value,
                 NumberOfDrawers = (int)numberOfDrawersNumericUpDown.Value,
-                SurfaceMaterial = Desk.DesktopSurfaceMaterial.Laminate // TODO:
+                SurfaceMaterial = Desk.DesktopSurfaceMaterial.Laminate // TODO
 
             };
 
@@ -50,13 +50,12 @@ namespace MegaDesk
             {
                 Desk = desk,
                 CustomerName = customerNameTextBox.Text,
-                ShippingSpeed = DeskQuote.ShippingSpeedChoice.Rush5Days, // TODO
-
+                RushShipping = DeskQuote.RushShippingChoice.Rush5Days, // TODO
                 QuoteDate = DateTime.Now
             };
 
-            totalPriceAmountLabel.Text = $"${deskQuote.CalculateQuote()}";
-            shippingPriceLabel.Text = $"${deskQuote.GetShippingPrice()}";
+            totalPriceAmountLabel.Text = @"${deskQuote.CalculateQuote()}";
+            shippingPriceLabel.Text = @"${deskQuote.GetShippingPrice()}";
 
             /* TODO: write to file */
             // if file exists

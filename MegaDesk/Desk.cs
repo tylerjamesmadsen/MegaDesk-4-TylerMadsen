@@ -25,9 +25,8 @@ namespace MegaDesk
 
         public DesktopSurfaceMaterial SurfaceMaterial { get; set; }
 
-        public int calculateSurfaceArea()
+        public int CalculateSurfaceArea()
         {
-            // TODO
             return Width * Depth;
         }
     }

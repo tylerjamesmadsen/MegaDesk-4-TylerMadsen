@@ -8,59 +8,95 @@ namespace MegaDesk
 {
     class DeskQuote
     {
-        public enum ShippingSpeedChoice
+        public enum RushShippingChoice
         {
             Rush3Days,
             Rush5Days,
-            Rush7Days,
-            Standard14Days
+            Rush7Days
         }
 
         // shipping speed constant strings
-        public static readonly string[] SHIPPING_SPEEDS = {
-            "Rush - 3 Days",
-            "Rush - 5 Days",
-            "Rush - 7 Days",
-            "Standard - 14 Days" };
+        public static readonly string[] ShippingSpeeds = {
+            "Rush - 3 Days", // 0
+            "Rush - 5 Days", // 1
+            "Rush - 7 Days", // 2
+            "Standard - 14 Days" }; // 3
 
         // price constants
-        const decimal PRICE_BASE = 200.00M;
-        const decimal PRICE_SURFACE_AREA= 1.00M;
-        const decimal PRICE_DRAWER_EACH = 50.00M;
-        const decimal PRICE_SURFACE_MATERIAL_OAK = 200.00M;
-        const decimal PRICE_SURFACE_MATERIAL_LAMINATE = 100.00M;
-        const decimal PRICE_SURFACE_MATERIAL_PINE = 50.00M;
-        const decimal PRICE_SURFACE_MATERIAL_ROSEWOOD = 300.00M;
-        const decimal PRICE_SURFACE_MATERIAL_VENEER = 125.00M;
-        const decimal PRICE_SHIP_3D_AND_SA_LT_1000 = 60.00M;
-        const decimal PRICE_SHIP_3D_AND_SA_GT_1000_LT_2000 = 70.00M;
-        const decimal PRICE_SHIP_3D_AND_SA_GT_2000 = 80.00M;
-        const decimal PRICE_SHIP_5D_AND_SA_LT_1000 = 40.00M;
-        const decimal PRICE_SHIP_5D_AND_SA_GT_1000_LT_2000 = 50.00M;
-        const decimal PRICE_SHIP_5D_AND_SA_GT_2000 = 60.00M;
-        const decimal PRICE_SHIP_7D_AND_SA_LT_1000 = 30.00M;
-        const decimal PRICE_SHIP_7D_AND_SA_GT_1000_LT_2000 = 35.00M;
-        const decimal PRICE_SHIP_7D_AND_SA_GT_2000 = 40.00M;
-        const decimal PRICE_SHIP_STANDARD = 0.00M;
+        private const decimal BasePrice = 200.00M;
+        private const decimal SurfaceAreaPrice= 1.00M;
+        private const decimal DrawerPriceEach = 50.00M;
+        private const decimal SurfaceMaterialPriceOak = 200.00M;
+        private const decimal SurfaceMaterialPriceLaminate = 100.00M;
+        private const decimal SurfaceMaterialPricePine = 50.00M;
+        private const decimal SurfaceMaterialPriceRosewood = 300.00M;
+        private const decimal SurfaceMaterialPriceVeneer = 125.00M;
+        private const decimal ShippingPrice3DayRushSmallDesk = 60.00M;
+        private const decimal ShippingPrice3DayRushMediumDesk = 70.00M;
+        private const decimal ShippingPrice3DayRushLargeDesk = 80.00M;
+        private const decimal ShippingPrice5DayRushSmallDesk = 40.00M;
+        private const decimal ShippingPrice5DayRushMediumDesk = 50.00M;
+        private const decimal ShippingPrice5DayRushLargeDesk = 60.00M;
+        private const decimal ShippingPrice7DayRushSmallDesk = 30.00M;
+        private const decimal ShippingPrice7DayRushMediumDesk = 35.00M;
+        private const decimal ShippingPrice7DayRushLargeDesk = 40.00M;
+        private const decimal ShippingPriceStandard = 0.00M;
 
 
         // properties
         public Desk Desk { get; set; }
         public string CustomerName { get; set; }
-        public ShippingSpeedChoice ShippingSpeed { get; set; }
+        public RushShippingChoice RushShipping { get; set; }
         public DateTime QuoteDate { get; set; }
 
         // methods
         public decimal CalculateQuote()
         {
             // TODO:
-            return PRICE_BASE;
+            // total price = base price $200.00
+            var totalPrice = BasePrice;
+
+            // += $1.00 per sq. in. > 1000
+
+            // += $50 per drawer
+
+            // += <amount> for surface material
+
+            // += <amount> if <rush choice> and <desk size>
+            
+            return totalPrice;
         }
 
         public decimal GetShippingPrice()
         {
             // TODO:
-            return 0.00M;
+            var shippingPrice = 0.00M;
+            switch (RushShipping)
+            {
+                case RushShippingChoice.Rush3Days:
+                    shippingPrice = ShippingPrice3DayRushSmallDesk;
+                    break;
+                case RushShippingChoice.Rush5Days:
+                    shippingPrice = ShippingPrice5DayRushSmallDesk;
+                    break;
+                case RushShippingChoice.Rush7Days:
+                    shippingPrice = ShippingPrice7DayRushSmallDesk;
+                    break;
+                default: // standard shipping
+                    shippingPrice = ShippingPriceStandard;
+                    break;
+            }
+
+            var sizeOfDesk = Desk.CalculateSurfaceArea();
+            if (sizeOfDesk >= 1000 && sizeOfDesk <= 2000)
+            {
+
+            }
+            else if (sizeOfDesk > 2000)
+            {
+
+            }
+            return shippingPrice;
         }
     }
 }
