@@ -13,14 +13,7 @@ namespace MegaDesk
             Rush3Days,
             Rush5Days,
             Rush7Days,
-            Standard
-        }
-
-        private enum DeskSize
-        {
-            Small,
-            Medium,
-            Large
+            Standard14Days
         }
 
         // shipping speed constant strings
@@ -40,6 +33,7 @@ namespace MegaDesk
         private const decimal SurfaceMaterialPriceRosewood = 300.00M;
         private const decimal SurfaceMaterialPriceVeneer = 125.00M;
         private const decimal ShippingPriceStandard = 0.00M;
+
         // shipping price index order: {small desk, medium desk, large desk}
         private readonly decimal[] _shippingPrice3DayRush = {60.00M, 70.00M, 80.00M};
         private readonly decimal[] _shippingPrice5DayRush = {40.00M, 50.00M, 60.00M};
@@ -47,12 +41,10 @@ namespace MegaDesk
         private const int MediumDesk = 1000;
         private const int LargeDesk = 2001;
 
-
-
         // properties
         public Desk Desk { get; set; }
         public string CustomerName { get; set; }
-        public RushShippingChoice RushShipping { get; set; }
+        public RushShippingChoice ShippingSpeed { get; set; }
         public DateTime QuoteDate { get; set; }
 
         // methods
@@ -110,13 +102,13 @@ namespace MegaDesk
 
         public decimal GetShippingPrice()
         {
-            var shippingPrice = 0.00M;
+            decimal shippingPrice = 0.00M;
 
             // check desk size
             var deskSize = GetDeskSizeIndex();
 
             // check shipping speed
-            switch (RushShipping)
+            switch (ShippingSpeed)
             {
                 case RushShippingChoice.Rush3Days:
                     shippingPrice = _shippingPrice3DayRush[deskSize];
@@ -127,7 +119,7 @@ namespace MegaDesk
                 case RushShippingChoice.Rush7Days:
                     shippingPrice = _shippingPrice7DayRush[deskSize];
                     break;
-                default: // standard shipping
+                case RushShippingChoice.Standard14Days:
                     shippingPrice = ShippingPriceStandard;
                     break;
             }

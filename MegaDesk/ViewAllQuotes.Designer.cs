@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.exitViewAllQuotesButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.viewAllQuotesDataGridView = new System.Windows.Forms.DataGridView();
             this.surfaceMaterialSelectionComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateQuoteAddedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.width = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.widthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.depthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberOfDrawersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surfaceMaterialColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shippingSpeedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shippingPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewAllQuotesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // exitViewAllQuotesButton
@@ -55,26 +55,27 @@
             this.exitViewAllQuotesButton.UseVisualStyleBackColor = true;
             this.exitViewAllQuotesButton.Click += new System.EventHandler(this.exitViewAllQuotesButton_Click);
             // 
-            // dataGridView1
+            // viewAllQuotesDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.viewAllQuotesDataGridView.AllowUserToAddRows = false;
+            this.viewAllQuotesDataGridView.AllowUserToDeleteRows = false;
+            this.viewAllQuotesDataGridView.AllowUserToOrderColumns = true;
+            this.viewAllQuotesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.viewAllQuotesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dateQuoteAddedColumn,
             this.customerName,
-            this.width,
+            this.widthColumn,
             this.depthColumn,
             this.numberOfDrawersColumn,
             this.surfaceMaterialColumn,
             this.shippingSpeedColumn,
             this.shippingPriceColumn,
             this.totalPriceColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 49);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(945, 391);
-            this.dataGridView1.TabIndex = 5;
+            this.viewAllQuotesDataGridView.Location = new System.Drawing.Point(12, 49);
+            this.viewAllQuotesDataGridView.Name = "viewAllQuotesDataGridView";
+            this.viewAllQuotesDataGridView.ReadOnly = true;
+            this.viewAllQuotesDataGridView.Size = new System.Drawing.Size(945, 391);
+            this.viewAllQuotesDataGridView.TabIndex = 5;
             // 
             // surfaceMaterialSelectionComboBox
             // 
@@ -114,11 +115,11 @@
             this.customerName.Name = "customerName";
             this.customerName.ReadOnly = true;
             // 
-            // width
+            // widthColumn
             // 
-            this.width.HeaderText = "Width";
-            this.width.Name = "width";
-            this.width.ReadOnly = true;
+            this.widthColumn.HeaderText = "Width";
+            this.widthColumn.Name = "widthColumn";
+            this.widthColumn.ReadOnly = true;
             // 
             // depthColumn
             // 
@@ -163,12 +164,13 @@
             this.ClientSize = new System.Drawing.Size(969, 496);
             this.Controls.Add(this.surfaceMaterialSelectionComboBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.viewAllQuotesDataGridView);
             this.Controls.Add(this.exitViewAllQuotesButton);
             this.Name = "ViewAllQuotes";
             this.Text = "View All Quotes";
             this.Deactivate += new System.EventHandler(this.exitViewAllQuotesButton_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ViewAllQuotes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.viewAllQuotesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,12 +179,12 @@
         #endregion
 
         private System.Windows.Forms.Button exitViewAllQuotesButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView viewAllQuotesDataGridView;
         private System.Windows.Forms.ComboBox surfaceMaterialSelectionComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateQuoteAddedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn width;
+        private System.Windows.Forms.DataGridViewTextBoxColumn widthColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn depthColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberOfDrawersColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn surfaceMaterialColumn;

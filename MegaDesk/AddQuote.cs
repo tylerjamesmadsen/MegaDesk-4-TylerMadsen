@@ -35,41 +35,102 @@ namespace MegaDesk
 
         private void GetQuoteButton_Click(object sender, EventArgs e)
         {
-            Desk desk = new Desk
-            {
-                Width = (int)widthNumericUpDown.Value,
-                Depth = (int)depthNumericUpDown.Value,
-                NumberOfDrawers = (int)numberOfDrawersNumericUpDown.Value,
-                // TODO:
-                SurfaceMaterial = (Desk.DesktopSurfaceMaterial)surfaceMaterialSelectionComboBox.SelectedItem
-            };
+            //bool invalidInput = true;
+            //while (invalidInput)
+            //{
+                try
+                {
+                    Desk desk = new Desk
+                    {
+                        Width = (int)widthNumericUpDown.Value,
+                        Depth = (int)depthNumericUpDown.Value,
+                        NumberOfDrawers = (int)numberOfDrawersNumericUpDown.Value,
+                        SurfaceMaterial = (Desk.DesktopSurfaceMaterial)surfaceMaterialSelectionComboBox.SelectedItem
+                    };
 
-            DeskQuote deskQuote = new DeskQuote
-            {
-                Desk = desk,
-                CustomerName = customerNameTextBox.Text,
-                // TODO:
-                RushShipping = DeskQuote.RushShippingChoice.Rush3Days,
-                QuoteDate = DateTime.Now
-            };
+                    DeskQuote deskQuote = new DeskQuote
+                    {
+                        Desk = desk,
+                        CustomerName = customerNameTextBox.Text,
+                        ShippingSpeed = GetRushShippingChoice(),
+                        QuoteDate = DateTime.Now
+                    };
 
-            totalPriceAmountLabel.Text = $@"${deskQuote.CalculateQuote()}";
-            shippingPriceLabel.Text = $@"${deskQuote.GetShippingPrice()}";
+                    if (string.IsNullOrEmpty(deskQuote.CustomerName))
+                    {
+                        throw new InvalidOperationException(@"Please enter your name.");
+                    }
 
-            /* TODO: write to file */
-            // if file exists
+                    totalPriceAmountLabel.Text = $@"${deskQuote.CalculateQuote()}";
+                    shippingPriceLabel.Text = $@"${deskQuote.GetShippingPrice()}";
 
-            // append to file
+                    /* TODO: write to file */
+                    // if file exists
+                    string quotesFile = @"quotes.txt";
+                    if (!File.Exists(quotesFile))
+                    {
+                        using (StreamWriter writer = File.CreateText(quotesFile))
+                        {
+                            writer.WriteLine(
+                                $"{deskQuote.QuoteDate}," +
+                                $"{deskQuote.CustomerName}," +
+                                $"{deskQuote.Desk.Width}," +
+                                $"{deskQuote.Desk.Depth}," +
+                                $"{deskQuote.Desk.NumberOfDrawers}," +
+                                $"{deskQuote.Desk.SurfaceMaterial}," +
+                                $"{deskQuote.ShippingSpeed}," +
+                                $"{deskQuote.GetShippingPrice()}," +
+                                $"{deskQuote.CalculateQuote()}");
+                            writer.Close();
+                        }
+                    }
+                    else
+                    {
+                        using (StreamWriter writer = File.AppendText(quotesFile))
+                        {
+                            writer.WriteLine(
+                                $"{deskQuote.QuoteDate}," +
+                                $"{deskQuote.CustomerName}," +
+                                $"{deskQuote.Desk.Width}," +
+                                $"{deskQuote.Desk.Depth}," +
+                                $"{deskQuote.Desk.NumberOfDrawers}," +
+                                $"{deskQuote.Desk.SurfaceMaterial}," +
+                                $"{deskQuote.ShippingSpeed}," +
+                                $"{deskQuote.GetShippingPrice()}," +
+                                $"{deskQuote.CalculateQuote()}");
+                            writer.Close();
+                        }
+                    }
 
-            // otherwise create and write to new file
+                //invalidInput = false;
 
-            DisplayQuote();
+                DisplayQuote();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+            //}
+            
         }
 
-        //private Desk.DesktopSurfaceMaterial GetSurfaceMaterial()
-        //{
-        //    return (Desk.DesktopSurfaceMaterial)surfaceMaterialSelectionComboBox.DataSource;
-        //}
+        private DeskQuote.RushShippingChoice GetRushShippingChoice()
+        {
+            if (shippingSelectionComboBox.Text == DeskQuote.ShippingSpeeds[0])
+            {
+                return DeskQuote.RushShippingChoice.Rush3Days;
+            }
+            if (shippingSelectionComboBox.Text == DeskQuote.ShippingSpeeds[1])
+            {
+                return DeskQuote.RushShippingChoice.Rush5Days;
+            }
+            if (shippingSelectionComboBox.Text == DeskQuote.ShippingSpeeds[2])
+            {
+                return DeskQuote.RushShippingChoice.Rush7Days;
+            }
+
+            return DeskQuote.RushShippingChoice.Standard14Days;
+        }
 
         private void DisplayQuote()
         {
