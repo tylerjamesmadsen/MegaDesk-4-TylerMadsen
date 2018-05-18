@@ -65,7 +65,7 @@
             // getQuoteButton
             // 
             this.getQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.getQuoteButton.Location = new System.Drawing.Point(172, 294);
+            this.getQuoteButton.Location = new System.Drawing.Point(207, 294);
             this.getQuoteButton.Name = "getQuoteButton";
             this.getQuoteButton.Size = new System.Drawing.Size(115, 40);
             this.getQuoteButton.TabIndex = 7;
@@ -88,7 +88,7 @@
             0,
             0});
             this.widthNumericUpDown.Name = "widthNumericUpDown";
-            this.widthNumericUpDown.Size = new System.Drawing.Size(113, 26);
+            this.widthNumericUpDown.Size = new System.Drawing.Size(148, 26);
             this.widthNumericUpDown.TabIndex = 2;
             this.widthNumericUpDown.Value = new decimal(new int[] {
             24,
@@ -119,7 +119,7 @@
             0,
             0});
             this.depthNumericUpDown.Name = "depthNumericUpDown";
-            this.depthNumericUpDown.Size = new System.Drawing.Size(113, 26);
+            this.depthNumericUpDown.Size = new System.Drawing.Size(148, 26);
             this.depthNumericUpDown.TabIndex = 3;
             this.depthNumericUpDown.Value = new decimal(new int[] {
             12,
@@ -137,7 +137,7 @@
             0,
             0});
             this.numberOfDrawersNumericUpDown.Name = "numberOfDrawersNumericUpDown";
-            this.numberOfDrawersNumericUpDown.Size = new System.Drawing.Size(113, 26);
+            this.numberOfDrawersNumericUpDown.Size = new System.Drawing.Size(148, 26);
             this.numberOfDrawersNumericUpDown.TabIndex = 4;
             // 
             // shippingSelectionComboBox
@@ -151,7 +151,7 @@
             "Standard: 14 days"});
             this.shippingSelectionComboBox.Location = new System.Drawing.Point(174, 181);
             this.shippingSelectionComboBox.Name = "shippingSelectionComboBox";
-            this.shippingSelectionComboBox.Size = new System.Drawing.Size(113, 28);
+            this.shippingSelectionComboBox.Size = new System.Drawing.Size(148, 28);
             this.shippingSelectionComboBox.TabIndex = 6;
             // 
             // label1
@@ -226,7 +226,7 @@
             "Pine"});
             this.surfaceMaterialSelectionComboBox.Location = new System.Drawing.Point(174, 147);
             this.surfaceMaterialSelectionComboBox.Name = "surfaceMaterialSelectionComboBox";
-            this.surfaceMaterialSelectionComboBox.Size = new System.Drawing.Size(113, 28);
+            this.surfaceMaterialSelectionComboBox.Size = new System.Drawing.Size(148, 28);
             this.surfaceMaterialSelectionComboBox.TabIndex = 5;
             // 
             // label5
@@ -243,7 +243,7 @@
             // 
             this.shippingPriceLabel.AutoSize = true;
             this.shippingPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shippingPriceLabel.Location = new System.Drawing.Point(238, 212);
+            this.shippingPriceLabel.Location = new System.Drawing.Point(273, 212);
             this.shippingPriceLabel.Name = "shippingPriceLabel";
             this.shippingPriceLabel.Size = new System.Drawing.Size(49, 20);
             this.shippingPriceLabel.TabIndex = 24;
@@ -253,7 +253,7 @@
             // 
             this.totalPriceAmountLabel.AutoSize = true;
             this.totalPriceAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalPriceAmountLabel.Location = new System.Drawing.Point(197, 250);
+            this.totalPriceAmountLabel.Location = new System.Drawing.Point(232, 250);
             this.totalPriceAmountLabel.Name = "totalPriceAmountLabel";
             this.totalPriceAmountLabel.Size = new System.Drawing.Size(90, 26);
             this.totalPriceAmountLabel.TabIndex = 43;
@@ -275,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 346);
+            this.ClientSize = new System.Drawing.Size(334, 346);
             this.Controls.Add(this.totalPriceAmountLabel);
             this.Controls.Add(this.totalPriceLabel);
             this.Controls.Add(this.shippingPriceLabel);
@@ -295,7 +295,6 @@
             this.Controls.Add(this.getQuoteButton);
             this.Controls.Add(this.cancelQuoteButton);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(315, 385);
             this.MinimumSize = new System.Drawing.Size(315, 385);
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

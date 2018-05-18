@@ -12,7 +12,8 @@ namespace MegaDesk
         {
             Rush3Days,
             Rush5Days,
-            Rush7Days
+            Rush7Days,
+            Standard
         }
 
         private enum DeskSize
@@ -31,28 +32,18 @@ namespace MegaDesk
 
         // price constants
         private const decimal BasePrice = 200.00M;
-        private const decimal SurfaceAreaPrice= 1.00M;
+        private const decimal SurfaceAreaPrice= 1.00M; // for every sq. in. > 1000
         private const decimal DrawerPriceEach = 50.00M;
         private const decimal SurfaceMaterialPriceOak = 200.00M;
         private const decimal SurfaceMaterialPriceLaminate = 100.00M;
         private const decimal SurfaceMaterialPricePine = 50.00M;
         private const decimal SurfaceMaterialPriceRosewood = 300.00M;
         private const decimal SurfaceMaterialPriceVeneer = 125.00M;
-        // TEST
         private const decimal ShippingPriceStandard = 0.00M;
-        // {small desk, medium desk, large desk}
+        // shipping price index order: {small desk, medium desk, large desk}
         private readonly decimal[] _shippingPrice3DayRush = {60.00M, 70.00M, 80.00M};
         private readonly decimal[] _shippingPrice5DayRush = {40.00M, 50.00M, 60.00M};
         private readonly decimal[] _shippingPrice7DayRush = {30.00M, 35.00M, 40.00M};
-        //private const decimal ShippingPrice3DayRushSmallDesk = 60.00M;
-        //private const decimal ShippingPrice3DayRushMediumDesk = 70.00M;
-        //private const decimal ShippingPrice3DayRushLargeDesk = 80.00M;
-        //private const decimal ShippingPrice5DayRushSmallDesk = 40.00M;
-        //private const decimal ShippingPrice5DayRushMediumDesk = 50.00M;
-        //private const decimal ShippingPrice5DayRushLargeDesk = 60.00M;
-        //private const decimal ShippingPrice7DayRushSmallDesk = 30.00M;
-        //private const decimal ShippingPrice7DayRushMediumDesk = 35.00M;
-        //private const decimal ShippingPrice7DayRushLargeDesk = 40.00M;
         private const int MediumDesk = 1000;
         private const int LargeDesk = 2001;
 
@@ -67,23 +58,59 @@ namespace MegaDesk
         // methods
         public decimal CalculateQuote()
         {
-            // TODO:
-            // total price = base price $200.00
             var totalPrice = BasePrice;
-            // += $1.00 per sq. in. > 1000
-
-            // += $50 per drawer
-
-            // += <amount> for surface material
-
-            // += <amount> if <rush choice> and <desk size>
+            totalPrice += CalculateSurfaceAreaPrice();
+            totalPrice += CalculatePriceOfDrawers();
+            totalPrice += GetSurfaceMaterialPrice();
+            totalPrice += GetShippingPrice();
             
             return totalPrice;
         }
 
+        private decimal GetSurfaceMaterialPrice()
+        {
+            var surfaceMaterialPrice = 0.00M;
+
+            switch (Desk.SurfaceMaterial)
+            {
+                case Desk.DesktopSurfaceMaterial.Laminate:
+                    surfaceMaterialPrice = SurfaceMaterialPriceLaminate;
+                    break;
+                case Desk.DesktopSurfaceMaterial.Oak:
+                    surfaceMaterialPrice = SurfaceMaterialPriceOak;
+                    break;
+                case Desk.DesktopSurfaceMaterial.Pine:
+                    surfaceMaterialPrice = SurfaceMaterialPricePine;
+                    break;
+                case Desk.DesktopSurfaceMaterial.Rosewood:
+                    surfaceMaterialPrice = SurfaceMaterialPriceRosewood;
+                    break;
+                case Desk.DesktopSurfaceMaterial.Veneer:
+                    surfaceMaterialPrice = SurfaceMaterialPriceVeneer;
+                    break;
+            }
+
+            return surfaceMaterialPrice;
+        }
+
+        private decimal CalculatePriceOfDrawers()
+        {
+            return DrawerPriceEach * Desk.NumberOfDrawers;
+        }
+
+        private decimal CalculateSurfaceAreaPrice()
+        {
+            if (CalculateSurfaceArea() > 1000)
+            {
+                return (CalculateSurfaceArea() - 1000) * SurfaceAreaPrice;
+            }
+
+            return 0.00M; // price if surface area <= 1000
+        }
+
         public decimal GetShippingPrice()
         {
-            var shippingPrice = -1.00M;
+            var shippingPrice = 0.00M;
 
             // check desk size
             var deskSize = GetDeskSizeIndex();
@@ -108,21 +135,19 @@ namespace MegaDesk
             return shippingPrice;
         }
 
+        private int CalculateSurfaceArea()
+        {
+            return Desk.Width * Desk.Depth;
+        }
+
         private int GetDeskSizeIndex()
         {
-            var surfaceArea = Desk.CalculateSurfaceArea();
+            var surfaceArea = CalculateSurfaceArea();
             if (surfaceArea < MediumDesk)
             {
                 return 0; // small desk
             }
-            else if (surfaceArea < LargeDesk)
-            {
-                return 1; // medium desk
-            }
-            else
-            {
-                return 2; // large desk
-            }
+            return surfaceArea < LargeDesk ? 1 : 2; // medium desk if true, otherwise large desk
         }
     }
 }

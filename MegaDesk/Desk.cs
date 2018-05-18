@@ -18,16 +18,8 @@ namespace MegaDesk
         }
 
         public int Width { get; set; }
-
         public int Depth { get; set; }
-
         public int NumberOfDrawers { get; set; }
-
         public DesktopSurfaceMaterial SurfaceMaterial { get; set; }
-
-        public int CalculateSurfaceArea()
-        {
-            return Width * Depth;
-        }
     }
 }

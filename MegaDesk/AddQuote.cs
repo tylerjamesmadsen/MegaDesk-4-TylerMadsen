@@ -18,13 +18,11 @@ namespace MegaDesk
             InitializeComponent();
 
             var materials = new List<Desk.DesktopSurfaceMaterial>();
-
             materials = Enum.GetValues(typeof(Desk.DesktopSurfaceMaterial))
                             .Cast<Desk.DesktopSurfaceMaterial>()
                             .ToList();
 
             surfaceMaterialSelectionComboBox.DataSource = materials;
-
             shippingSelectionComboBox.DataSource = DeskQuote.ShippingSpeeds;
         }
 
@@ -42,20 +40,21 @@ namespace MegaDesk
                 Width = (int)widthNumericUpDown.Value,
                 Depth = (int)depthNumericUpDown.Value,
                 NumberOfDrawers = (int)numberOfDrawersNumericUpDown.Value,
-                SurfaceMaterial = Desk.DesktopSurfaceMaterial.Laminate // TODO
-
+                // TODO:
+                SurfaceMaterial = (Desk.DesktopSurfaceMaterial)surfaceMaterialSelectionComboBox.SelectedItem
             };
 
             DeskQuote deskQuote = new DeskQuote
             {
                 Desk = desk,
                 CustomerName = customerNameTextBox.Text,
-                RushShipping = DeskQuote.RushShippingChoice.Rush5Days, // TODO
+                // TODO:
+                RushShipping = DeskQuote.RushShippingChoice.Rush3Days,
                 QuoteDate = DateTime.Now
             };
 
-            totalPriceAmountLabel.Text = @"${deskQuote.CalculateQuote()}";
-            shippingPriceLabel.Text = @"${deskQuote.GetShippingPrice()}";
+            totalPriceAmountLabel.Text = $@"${deskQuote.CalculateQuote()}";
+            shippingPriceLabel.Text = $@"${deskQuote.GetShippingPrice()}";
 
             /* TODO: write to file */
             // if file exists
@@ -66,6 +65,11 @@ namespace MegaDesk
 
             DisplayQuote();
         }
+
+        //private Desk.DesktopSurfaceMaterial GetSurfaceMaterial()
+        //{
+        //    return (Desk.DesktopSurfaceMaterial)surfaceMaterialSelectionComboBox.DataSource;
+        //}
 
         private void DisplayQuote()
         {
@@ -85,7 +89,7 @@ namespace MegaDesk
             getQuoteButton.Visible = false;
 
             // change text of cancel button to "Main Menu"
-            cancelQuoteButton.Text = "Main Menu";
+            cancelQuoteButton.Text = @"Main Menu";
         }
     }
 }
