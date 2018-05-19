@@ -26,29 +26,22 @@ namespace MegaDesk
             Close();
         }
 
-        private static void ReadFileIntoDataGridView()
-        {
-            
-            
-        }
-
         private void ViewAllQuotes_Load(object sender, EventArgs e)
         {
             string quotesFile = @"quotes.txt";
             StreamReader reader = new StreamReader(quotesFile);
             try
             {
-                string quotesFileLine = reader.ReadLine();
-                do
+                for (var row = 0; !reader.EndOfStream ; row++)
                 {
-                    string[] quotesFileLineValues = quotesFileLine.Split(',');
-                    //foreach (string value in quotesFileLineValues)
                     viewAllQuotesDataGridView.Rows.Add();
-                    for (var i = 0; i < quotesFileLineValues.Length; i++)
+                    string quotesFileLine = reader.ReadLine();
+                    string[] quotesFileLineValues = quotesFileLine.Split(',');
+                    for (var col = 0; col < quotesFileLineValues.Length; col++)
                     {
-                        viewAllQuotesDataGridView.Rows[i].Cells[i].Value = quotesFileLineValues[i];
+                        viewAllQuotesDataGridView.Rows[row].Cells[col].Value = quotesFileLineValues[col];
                     }
-                } while (true);
+                }
                 reader.Close();
             }
             catch (Exception exception)
