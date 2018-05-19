@@ -16,6 +16,11 @@ namespace MegaDesk
         private void ReadQuotesFile()
         {
             const string quotesFile = @"quotes.txt";
+            if (!File.Exists(quotesFile))
+            {
+                return;
+            }
+
             StreamReader reader = new StreamReader(quotesFile);
             try
             {
