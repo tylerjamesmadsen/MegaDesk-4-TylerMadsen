@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -38,80 +33,80 @@ namespace MegaDesk
             //bool invalidInput = true;
             //while (invalidInput)
             //{
-                try
+            try
+            {
+                Desk desk = new Desk
                 {
-                    Desk desk = new Desk
-                    {
-                        Width = (int)widthNumericUpDown.Value,
-                        Depth = (int)depthNumericUpDown.Value,
-                        NumberOfDrawers = (int)numberOfDrawersNumericUpDown.Value,
-                        SurfaceMaterial = (Desk.DesktopSurfaceMaterial)surfaceMaterialSelectionComboBox.SelectedItem
-                    };
+                    Width = (int)widthNumericUpDown.Value,
+                    Depth = (int)depthNumericUpDown.Value,
+                    NumberOfDrawers = (int)numberOfDrawersNumericUpDown.Value,
+                    SurfaceMaterial = (Desk.DesktopSurfaceMaterial)surfaceMaterialSelectionComboBox.SelectedItem
+                };
 
-                    DeskQuote deskQuote = new DeskQuote
-                    {
-                        Desk = desk,
-                        CustomerName = customerNameTextBox.Text,
-                        ShippingSpeed = GetRushShippingChoice(),
-                        QuoteDate = DateTime.Now
-                    };
+                DeskQuote deskQuote = new DeskQuote
+                {
+                    Desk = desk,
+                    CustomerName = customerNameTextBox.Text,
+                    ShippingSpeed = GetRushShippingChoice(),
+                    QuoteDate = DateTime.Now
+                };
 
-                    if (string.IsNullOrEmpty(deskQuote.CustomerName))
+                if (string.IsNullOrEmpty(deskQuote.CustomerName))
+                {
+                    throw new InvalidOperationException(@"Please enter your name.");
+                }
+
+                totalPriceAmountLabel.Text = $@"${deskQuote.CalculateQuote()}";
+                shippingPriceLabel.Text = $@"${deskQuote.GetShippingPrice()}";
+
+                /* TODO: write to file */
+                // if file exists
+                string quotesFile = @"quotes.txt";
+                if (!File.Exists(quotesFile))
+                {
+                    using (StreamWriter writer = File.CreateText(quotesFile))
                     {
-                        throw new InvalidOperationException(@"Please enter your name.");
+                        writer.WriteLine(
+                            $"{deskQuote.QuoteDate}," +
+                            $"{deskQuote.CustomerName}," +
+                            $"{deskQuote.Desk.Width}," +
+                            $"{deskQuote.Desk.Depth}," +
+                            $"{deskQuote.Desk.NumberOfDrawers}," +
+                            $"{deskQuote.Desk.SurfaceMaterial}," +
+                            $"{deskQuote.ShippingSpeed}," +
+                            $"{deskQuote.GetShippingPrice()}," +
+                            $"{deskQuote.CalculateQuote()}");
+                        writer.Close();
                     }
-
-                    totalPriceAmountLabel.Text = $@"${deskQuote.CalculateQuote()}";
-                    shippingPriceLabel.Text = $@"${deskQuote.GetShippingPrice()}";
-
-                    /* TODO: write to file */
-                    // if file exists
-                    string quotesFile = @"quotes.txt";
-                    if (!File.Exists(quotesFile))
+                }
+                else
+                {
+                    using (StreamWriter writer = File.AppendText(quotesFile))
                     {
-                        using (StreamWriter writer = File.CreateText(quotesFile))
-                        {
-                            writer.WriteLine(
-                                $"{deskQuote.QuoteDate}," +
-                                $"{deskQuote.CustomerName}," +
-                                $"{deskQuote.Desk.Width}," +
-                                $"{deskQuote.Desk.Depth}," +
-                                $"{deskQuote.Desk.NumberOfDrawers}," +
-                                $"{deskQuote.Desk.SurfaceMaterial}," +
-                                $"{deskQuote.ShippingSpeed}," +
-                                $"{deskQuote.GetShippingPrice()}," +
-                                $"{deskQuote.CalculateQuote()}");
-                            writer.Close();
-                        }
+                        writer.WriteLine(
+                            $"{deskQuote.QuoteDate}," +
+                            $"{deskQuote.CustomerName}," +
+                            $"{deskQuote.Desk.Width}," +
+                            $"{deskQuote.Desk.Depth}," +
+                            $"{deskQuote.Desk.NumberOfDrawers}," +
+                            $"{deskQuote.Desk.SurfaceMaterial}," +
+                            $"{deskQuote.ShippingSpeed}," +
+                            $"{deskQuote.GetShippingPrice()}," +
+                            $"{deskQuote.CalculateQuote()}");
+                        writer.Close();
                     }
-                    else
-                    {
-                        using (StreamWriter writer = File.AppendText(quotesFile))
-                        {
-                            writer.WriteLine(
-                                $"{deskQuote.QuoteDate}," +
-                                $"{deskQuote.CustomerName}," +
-                                $"{deskQuote.Desk.Width}," +
-                                $"{deskQuote.Desk.Depth}," +
-                                $"{deskQuote.Desk.NumberOfDrawers}," +
-                                $"{deskQuote.Desk.SurfaceMaterial}," +
-                                $"{deskQuote.ShippingSpeed}," +
-                                $"{deskQuote.GetShippingPrice()}," +
-                                $"{deskQuote.CalculateQuote()}");
-                            writer.Close();
-                        }
-                    }
+                }
 
                 //invalidInput = false;
 
                 DisplayQuote();
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show(exception.Message);
-                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
             //}
-            
+
         }
 
         private DeskQuote.RushShippingChoice GetRushShippingChoice()

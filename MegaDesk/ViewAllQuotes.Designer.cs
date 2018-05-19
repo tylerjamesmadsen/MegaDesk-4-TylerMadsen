@@ -30,8 +30,6 @@
         {
             this.exitViewAllQuotesButton = new System.Windows.Forms.Button();
             this.viewAllQuotesDataGridView = new System.Windows.Forms.DataGridView();
-            this.surfaceMaterialSelectionComboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.dateQuoteAddedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.widthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,13 +39,15 @@
             this.shippingSpeedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shippingPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surfaceMaterialSelectionComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.viewAllQuotesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // exitViewAllQuotesButton
             // 
             this.exitViewAllQuotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitViewAllQuotesButton.Location = new System.Drawing.Point(713, 446);
+            this.exitViewAllQuotesButton.Location = new System.Drawing.Point(807, 446);
             this.exitViewAllQuotesButton.Name = "exitViewAllQuotesButton";
             this.exitViewAllQuotesButton.Size = new System.Drawing.Size(150, 40);
             this.exitViewAllQuotesButton.TabIndex = 4;
@@ -76,33 +76,6 @@
             this.viewAllQuotesDataGridView.ReadOnly = true;
             this.viewAllQuotesDataGridView.Size = new System.Drawing.Size(945, 391);
             this.viewAllQuotesDataGridView.TabIndex = 5;
-            // 
-            // surfaceMaterialSelectionComboBox
-            // 
-            this.surfaceMaterialSelectionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surfaceMaterialSelectionComboBox.FormattingEnabled = true;
-            this.surfaceMaterialSelectionComboBox.Items.AddRange(new object[] {
-            "*All Materials*",
-            "Laminate",
-            "Oak",
-            "Rosewood",
-            "Veneer",
-            "Pine"});
-            this.surfaceMaterialSelectionComboBox.Location = new System.Drawing.Point(143, 12);
-            this.surfaceMaterialSelectionComboBox.Name = "surfaceMaterialSelectionComboBox";
-            this.surfaceMaterialSelectionComboBox.Size = new System.Drawing.Size(113, 28);
-            this.surfaceMaterialSelectionComboBox.TabIndex = 22;
-            this.surfaceMaterialSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.surfaceMaterialSelectionComboBox_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 20);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Surface Material";
             // 
             // dateQuoteAddedColumn
             // 
@@ -158,6 +131,35 @@
             this.totalPriceColumn.Name = "totalPriceColumn";
             this.totalPriceColumn.ReadOnly = true;
             // 
+            // surfaceMaterialSelectionComboBox
+            // 
+            this.surfaceMaterialSelectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.surfaceMaterialSelectionComboBox.DropDownWidth = 150;
+            this.surfaceMaterialSelectionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.surfaceMaterialSelectionComboBox.FormattingEnabled = true;
+            this.surfaceMaterialSelectionComboBox.Items.AddRange(new object[] {
+            "*All Materials*",
+            "Laminate",
+            "Oak",
+            "Rosewood",
+            "Veneer",
+            "Pine"});
+            this.surfaceMaterialSelectionComboBox.Location = new System.Drawing.Point(143, 12);
+            this.surfaceMaterialSelectionComboBox.Name = "surfaceMaterialSelectionComboBox";
+            this.surfaceMaterialSelectionComboBox.Size = new System.Drawing.Size(150, 28);
+            this.surfaceMaterialSelectionComboBox.TabIndex = 22;
+            this.surfaceMaterialSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.surfaceMaterialSelectionComboBox_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 20);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Surface Material";
+            // 
             // ViewAllQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,7 +172,6 @@
             this.Name = "ViewAllQuotes";
             this.Text = "View All Quotes";
             this.Deactivate += new System.EventHandler(this.exitViewAllQuotesButton_Click);
-            this.Load += new System.EventHandler(this.ViewAllQuotes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.viewAllQuotesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -181,8 +182,6 @@
 
         private System.Windows.Forms.Button exitViewAllQuotesButton;
         private System.Windows.Forms.DataGridView viewAllQuotesDataGridView;
-        private System.Windows.Forms.ComboBox surfaceMaterialSelectionComboBox;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateQuoteAddedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn widthColumn;
@@ -192,5 +191,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn shippingSpeedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shippingPriceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceColumn;
+        private System.Windows.Forms.ComboBox surfaceMaterialSelectionComboBox;
+        private System.Windows.Forms.Label label3;
     }
 }

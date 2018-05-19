@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MegaDesk
 {
@@ -25,7 +21,7 @@ namespace MegaDesk
 
         // price constants
         private const decimal BasePrice = 200.00M;
-        private const decimal SurfaceAreaPrice= 1.00M; // for every sq. in. > 1000
+        private const decimal SurfaceAreaPrice = 1.00M; // for every sq. in. > 1000
         private const decimal DrawerPriceEach = 50.00M;
         private const decimal SurfaceMaterialPriceOak = 200.00M;
         private const decimal SurfaceMaterialPriceLaminate = 100.00M;
@@ -35,9 +31,9 @@ namespace MegaDesk
         private const decimal ShippingPriceStandard = 0.00M;
 
         // shipping price index order: {small desk, medium desk, large desk}
-        private readonly decimal[] _shippingPrice3DayRush = {60.00M, 70.00M, 80.00M};
-        private readonly decimal[] _shippingPrice5DayRush = {40.00M, 50.00M, 60.00M};
-        private readonly decimal[] _shippingPrice7DayRush = {30.00M, 35.00M, 40.00M};
+        private readonly decimal[] _shippingPrice3DayRush = { 60.00M, 70.00M, 80.00M };
+        private readonly decimal[] _shippingPrice5DayRush = { 40.00M, 50.00M, 60.00M };
+        private readonly decimal[] _shippingPrice7DayRush = { 30.00M, 35.00M, 40.00M };
         private const int MediumDesk = 1000;
         private const int LargeDesk = 2001;
 
@@ -55,7 +51,7 @@ namespace MegaDesk
             totalPrice += CalculatePriceOfDrawers();
             totalPrice += GetSurfaceMaterialPrice();
             totalPrice += GetShippingPrice();
-            
+
             return totalPrice;
         }
 

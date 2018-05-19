@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MegaDesk
@@ -16,30 +10,57 @@ namespace MegaDesk
         public ViewAllQuotes()
         {
             InitializeComponent();
-
+            ReadQuotesFile();
         }
 
-        private void exitViewAllQuotesButton_Click(object sender, EventArgs e)
+        private void ReadQuotesFile()
         {
-            var mainMenu = (MainMenu)Tag;
-            mainMenu.Show();
-            Close();
-        }
-
-        private void ViewAllQuotes_Load(object sender, EventArgs e)
-        {
-            string quotesFile = @"quotes.txt";
+            const string quotesFile = @"quotes.txt";
             StreamReader reader = new StreamReader(quotesFile);
             try
             {
-                for (var row = 0; !reader.EndOfStream ; row++)
+                bool insertRow = true;
+                for (var row = 0; !reader.EndOfStream; row++)
                 {
-                    viewAllQuotesDataGridView.Rows.Add();
-                    string quotesFileLine = reader.ReadLine();
-                    string[] quotesFileLineValues = quotesFileLine.Split(',');
-                    for (var col = 0; col < quotesFileLineValues.Length; col++)
+                    if (insertRow == false && row != 0)
                     {
-                        viewAllQuotesDataGridView.Rows[row].Cells[col].Value = quotesFileLineValues[col];
+                        row--;
+                    }
+                    else
+                    {
+                        viewAllQuotesDataGridView.Rows.Add();
+                    }
+
+                    string quotesFileLine = reader.ReadLine();
+                    if (quotesFileLine == null)
+                    {
+                        continue;
+                    }
+
+                    string[] quotesFileLineValues = quotesFileLine.Split(',');
+
+                    if (surfaceMaterialSelectionComboBox.Text == "" ||
+                        surfaceMaterialSelectionComboBox.Text == @"*All Materials*")
+                    {
+                        for (var col = 0; col < quotesFileLineValues.Length; col++)
+                        {
+                            viewAllQuotesDataGridView.Rows[row].Cells[col].Value = quotesFileLineValues[col];
+                        }
+
+                        insertRow = true;
+                    }
+                    else if (quotesFileLineValues.Contains(surfaceMaterialSelectionComboBox.Text))
+                    {
+                        for (var col = 0; col < quotesFileLineValues.Length; col++)
+                        {
+                            viewAllQuotesDataGridView.Rows[row].Cells[col].Value = quotesFileLineValues[col];
+                        }
+
+                        insertRow = true;
+                    }
+                    else
+                    {
+                        insertRow = false;
                     }
                 }
                 reader.Close();
@@ -51,13 +72,17 @@ namespace MegaDesk
             }
         }
 
-        private readonly DataTable _dt = new DataTable();
+        private void exitViewAllQuotesButton_Click(object sender, EventArgs e)
+        {
+            var mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+            Close();
+        }
 
         private void surfaceMaterialSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataView dv = _dt.DefaultView;
-            dv.RowFilter = $"Surface Material LIKE %{surfaceMaterialSelectionComboBox.SelectedItem}%";
-            viewAllQuotesDataGridView.DataSource = dv;
+            viewAllQuotesDataGridView.Rows.Clear();
+            ReadQuotesFile();
         }
     }
 }
