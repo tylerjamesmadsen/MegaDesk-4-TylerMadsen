@@ -30,9 +30,6 @@ namespace MegaDesk
 
         private void GetQuoteButton_Click(object sender, EventArgs e)
         {
-            //bool invalidInput = true;
-            //while (invalidInput)
-            //{
             try
             {
                 Desk desk = new Desk
@@ -59,8 +56,6 @@ namespace MegaDesk
                 totalPriceAmountLabel.Text = $@"${deskQuote.CalculateQuote()}";
                 shippingPriceLabel.Text = $@"${deskQuote.GetShippingPrice()}";
 
-                /* TODO: write to file */
-                // if file exists
                 string quotesFile = @"quotes.txt";
                 if (!File.Exists(quotesFile))
                 {
@@ -97,16 +92,12 @@ namespace MegaDesk
                     }
                 }
 
-                //invalidInput = false;
-
                 DisplayQuote();
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
             }
-            //}
-
         }
 
         private DeskQuote.RushShippingChoice GetRushShippingChoice()
@@ -137,7 +128,11 @@ namespace MegaDesk
             surfaceMaterialSelectionComboBox.Enabled = false;
             shippingSelectionComboBox.Enabled = false;
 
-            // display price
+            // display shipping price
+            shippingPriceTextLabel.Visible = true;
+            shippingPriceLabel.Visible = true;
+
+            // display total price
             totalPriceLabel.Visible = true;
             totalPriceAmountLabel.Visible = true;
 

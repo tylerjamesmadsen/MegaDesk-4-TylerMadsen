@@ -42,7 +42,7 @@
             this.shippingSpeedLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.surfaceMaterialSelectionComboBox = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.shippingPriceTextLabel = new System.Windows.Forms.Label();
             this.shippingPriceLabel = new System.Windows.Forms.Label();
             this.totalPriceAmountLabel = new System.Windows.Forms.Label();
             this.totalPriceLabel = new System.Windows.Forms.Label();
@@ -229,33 +229,39 @@
             this.surfaceMaterialSelectionComboBox.Size = new System.Drawing.Size(198, 28);
             this.surfaceMaterialSelectionComboBox.TabIndex = 5;
             // 
-            // label5
+            // shippingPriceTextLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 212);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 20);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Shipping Price";
+            this.shippingPriceTextLabel.AutoSize = true;
+            this.shippingPriceTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shippingPriceTextLabel.Location = new System.Drawing.Point(12, 212);
+            this.shippingPriceTextLabel.Name = "shippingPriceTextLabel";
+            this.shippingPriceTextLabel.Size = new System.Drawing.Size(110, 20);
+            this.shippingPriceTextLabel.TabIndex = 23;
+            this.shippingPriceTextLabel.Text = "Shipping Price";
+            this.shippingPriceTextLabel.Visible = false;
             // 
             // shippingPriceLabel
             // 
-            this.shippingPriceLabel.AutoSize = true;
+            this.shippingPriceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.shippingPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shippingPriceLabel.Location = new System.Drawing.Point(323, 212);
+            this.shippingPriceLabel.Location = new System.Drawing.Point(174, 212);
             this.shippingPriceLabel.Name = "shippingPriceLabel";
-            this.shippingPriceLabel.Size = new System.Drawing.Size(49, 20);
+            this.shippingPriceLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.shippingPriceLabel.Size = new System.Drawing.Size(198, 20);
             this.shippingPriceLabel.TabIndex = 24;
             this.shippingPriceLabel.Text = "$0.00";
+            this.shippingPriceLabel.Visible = false;
             // 
             // totalPriceAmountLabel
             // 
-            this.totalPriceAmountLabel.AutoSize = true;
+            this.totalPriceAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.totalPriceAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalPriceAmountLabel.Location = new System.Drawing.Point(282, 250);
+            this.totalPriceAmountLabel.Location = new System.Drawing.Point(174, 250);
             this.totalPriceAmountLabel.Name = "totalPriceAmountLabel";
-            this.totalPriceAmountLabel.Size = new System.Drawing.Size(90, 26);
+            this.totalPriceAmountLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.totalPriceAmountLabel.Size = new System.Drawing.Size(198, 26);
             this.totalPriceAmountLabel.TabIndex = 43;
             this.totalPriceAmountLabel.Text = "$200.00";
             this.totalPriceAmountLabel.Visible = false;
@@ -279,7 +285,7 @@
             this.Controls.Add(this.totalPriceAmountLabel);
             this.Controls.Add(this.totalPriceLabel);
             this.Controls.Add(this.shippingPriceLabel);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.shippingPriceTextLabel);
             this.Controls.Add(this.surfaceMaterialSelectionComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.shippingSpeedLabel);
@@ -325,7 +331,7 @@
         private System.Windows.Forms.Label shippingSpeedLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox surfaceMaterialSelectionComboBox;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label shippingPriceTextLabel;
         private System.Windows.Forms.Label shippingPriceLabel;
         private System.Windows.Forms.Label totalPriceAmountLabel;
         private System.Windows.Forms.Label totalPriceLabel;
