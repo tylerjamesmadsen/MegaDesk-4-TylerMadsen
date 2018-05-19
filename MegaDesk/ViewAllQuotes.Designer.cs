@@ -92,6 +92,7 @@
             this.surfaceMaterialSelectionComboBox.Name = "surfaceMaterialSelectionComboBox";
             this.surfaceMaterialSelectionComboBox.Size = new System.Drawing.Size(113, 28);
             this.surfaceMaterialSelectionComboBox.TabIndex = 22;
+            this.surfaceMaterialSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.surfaceMaterialSelectionComboBox_SelectedIndexChanged);
             // 
             // label3
             // 

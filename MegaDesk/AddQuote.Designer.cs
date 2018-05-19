@@ -142,6 +142,9 @@
             // 
             // shippingSelectionComboBox
             // 
+            this.shippingSelectionComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.shippingSelectionComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.shippingSelectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.shippingSelectionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shippingSelectionComboBox.FormattingEnabled = true;
             this.shippingSelectionComboBox.Items.AddRange(new object[] {
@@ -216,6 +219,9 @@
             // 
             // surfaceMaterialSelectionComboBox
             // 
+            this.surfaceMaterialSelectionComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.surfaceMaterialSelectionComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.surfaceMaterialSelectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.surfaceMaterialSelectionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.surfaceMaterialSelectionComboBox.FormattingEnabled = true;
             this.surfaceMaterialSelectionComboBox.Location = new System.Drawing.Point(174, 147);

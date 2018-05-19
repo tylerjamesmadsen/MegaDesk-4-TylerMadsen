@@ -50,5 +50,14 @@ namespace MegaDesk
                 throw;
             }
         }
+
+        private readonly DataTable _dt = new DataTable();
+
+        private void surfaceMaterialSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataView dv = _dt.DefaultView;
+            dv.RowFilter = $"Surface Material LIKE %{surfaceMaterialSelectionComboBox.SelectedItem}%";
+            viewAllQuotesDataGridView.DataSource = dv;
+        }
     }
 }
